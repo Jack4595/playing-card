@@ -1,0 +1,48 @@
+.card {
+  width: 120px;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  padding: 8px;
+  font-family: 'Georgia', serif;
+}
+
+#playing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.middle {
+  align-self: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.5rem;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.card.red {
+  color: red;
+}
+
+.card:not(.red) {
+  color: black;
+}
+
+body {
+  background-color: #228B22;
+}
