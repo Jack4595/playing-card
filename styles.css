@@ -1,14 +1,16 @@
+/* === General Card Layout === */
 .card {
-  width: 120px;
-  height: 180px;
+  width: 130px;
+  height: 190px;
   display: flex;
   justify-content: space-between;
   background: white;
   border: 1px solid #333;
   border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 8px;
   font-family: 'Georgia', serif;
+  font-size: 18px;
 }
 
 #playing-cards {
@@ -18,23 +20,11 @@
   gap: 20px;
 }
 
-.left {
-  align-self: flex-start;
+body {
+  background-color: #228B22;
 }
 
-.middle {
-  align-self: center;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 1.5rem;
-}
-
-.right {
-  align-self: flex-end;
-}
-
+/* === Card Coloring === */
 .card.red {
   color: red;
 }
@@ -43,6 +33,98 @@
   color: black;
 }
 
-body {
-  background-color: #228B22;
+/* === Corners === */
+.left,
+.right {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.left {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.right {
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* === Middle Section === */
+.middle {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* === Upside-down Corner === */
+.upside-down {
+  transform: rotate(180deg);
+}
+
+/* === 5 of Diamonds Layout === */
+.middle.five-diams {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.five-diams .row {
+  display: flex;
+  justify-content: space-between;
+  width: 85px;
+}
+
+.five-diams .row-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* === 4 of Clubs Layout (Matching Spacing) === */
+.four-clubs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+  align-items: center;
+}
+
+.four-clubs .row {
+  display: flex;
+  justify-content: space-between;
+  width: 85px;
+}
+
+/* === 2 of Clubs Layout (Matching Spacing) === */
+.two-clubs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+  align-items: center;
+}
+
+.two-clubs .row {
+  display: flex;
+  justify-content: center;
+  width: 85px;
+}
+
+/* === 3 of Hearts Layout (Matching Spacing) === */
+.three-hearts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+  align-items: center;
+}
+
+/* === Invisible Placeholder === */
+.invisible {
+  visibility: hidden;
 }
