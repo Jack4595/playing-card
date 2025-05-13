@@ -1,17 +1,12 @@
-/* === General Card Layout === */
 .card {
   width: 130px;
   height: 190px;
-  display: flex;
-  justify-content: space-between;
-  background: white;
-  border: 1px solid #333;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  font-family: 'Georgia', serif;
-  font-size: 18px;
+  perspective: 1000px;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
+
 
 #playing-cards {
   display: flex;
@@ -24,7 +19,6 @@ body {
   background-color: #228B22;
 }
 
-/* === Card Coloring === */
 .card.red {
   color: red;
 }
@@ -33,7 +27,6 @@ body {
   color: black;
 }
 
-/* === Corners === */
 .left,
 .right {
   font-size: 1rem;
@@ -50,7 +43,6 @@ body {
   text-align: right;
 }
 
-/* === Middle Section === */
 .middle {
   align-self: center;
   display: flex;
@@ -61,12 +53,10 @@ body {
   line-height: 1;
 }
 
-/* === Upside-down Corner === */
 .upside-down {
   transform: rotate(180deg);
 }
 
-/* === 5 of Diamonds Layout === */
 .middle.five-diams {
   display: flex;
   flex-direction: column;
@@ -85,7 +75,6 @@ body {
   justify-content: center;
 }
 
-/* === 4 of Clubs Layout (Matching Spacing) === */
 .four-clubs {
   display: flex;
   flex-direction: column;
@@ -100,7 +89,6 @@ body {
   width: 85px;
 }
 
-/* === 2 of Clubs Layout (Matching Spacing) === */
 .two-clubs {
   display: flex;
   flex-direction: column;
@@ -115,7 +103,6 @@ body {
   width: 85px;
 }
 
-/* === 3 of Hearts Layout (Matching Spacing) === */
 .three-hearts {
   display: flex;
   flex-direction: column;
@@ -124,7 +111,75 @@ body {
   align-items: center;
 }
 
-/* === Invisible Placeholder === */
 .invisible {
   visibility: hidden;
+}
+
+/* Flip Effect Integration */
+.card {
+  perspective: 1000px;
+  position: relative; /* Needed for inner positioning */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.card:hover .card-inner {
+  transform: rotateY(0deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+
+/* Retain your original styling inside the front */
+.card-front {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+}
+
+.card.red .card-front {
+  color: red;
+}
+
+.card:not(.red) .card-front {
+  color: black;
+}
+
+/* Card back styling */
+.card-back {
+  background: repeating-linear-gradient(
+    45deg,
+    #333,
+    #333 10px,
+    #000 10px,
+    #000 20px
+  );
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
 }
